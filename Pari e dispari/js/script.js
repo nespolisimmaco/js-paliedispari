@@ -9,7 +9,7 @@ const userChoice = prompt("Ciao utente! Scegli: pari o dispari?").toLowerCase();
 console.log(userChoice);
 let userNumber = parseInt(prompt("Adesso inserisci un numero da 1 a 5"));
 // SE il numero non è nel range
-while (5 > userNumber < 1) {
+while ((userNumber < 1) || (userNumber > 5)) {
     userNumber = parseInt(prompt("Il numero non è compreso nel range, reinserisci"));
 }
 console.log("User number", userNumber);
@@ -19,8 +19,21 @@ console.log("Computer number", computerNumber);
 // Sommo i due numeri
 const sum = userNumber + computerNumber;
 console.log("Somma", sum);
+// La somma è pari o dispari
 const oddOrEvenCheck = oddOrEven(sum);
 console.log(oddOrEvenCheck);
+// Dichiaro chi ha vinto
+let result = "";
+if (userChoice === "pari" && oddOrEvenCheck === "pari") {
+    result = ("Hai vinto!");
+} else if (userChoice === "pari" && oddOrEvenCheck === "dispari") {
+    result = ("Computer vince!");
+} else if (userChoice === "dispari" && oddOrEvenCheck === "dispari") {
+    result = ("Hai vinto!");
+} else if (userChoice === "dispari" && oddOrEvenCheck === "pari") {
+    result = ("Computer vince!");
+}
+document.writeln(result);
 
 ////////////////////
 // FUNCTIONS
