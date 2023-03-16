@@ -4,7 +4,9 @@
 // Chiedo la parola all'utente
 const userWord = prompt("Inserisci una parola, e io ti dirò se è palindroma");
 console.log(userWord);
-palindrome(userWord);
+const palindromeCheck = palindrome(userWord);
+console.log(palindromeCheck);
+document.writeln(palindromeCheck);
 // Creo una funzione per vedere se è palindroma
 /**
  * Description
@@ -18,4 +20,9 @@ function palindrome(word) {
         console.log(word[i]);
     }
     console.log(wordReverse);
+    if (word === wordReverse) {
+        return "La parola è palindroma";
+    } else {
+        return "La parola non è palindroma";
+    }
 }
